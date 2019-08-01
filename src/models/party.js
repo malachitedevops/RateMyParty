@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 const Voter = require('./voter').schema;
 
+mongoose.set('useFindAndModify', false);
+
+
 function getMockId(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
