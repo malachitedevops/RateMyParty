@@ -11,6 +11,7 @@ pipeline {
 				branch 'master'
 			}
         steps {
+						sh 'wget https://elasticbeanstalk-us-east-1-124429370407.s3.amazonaws.com/beparty/.env'
             checkout scm
             sh 'docker build -t ncrmns/beparty .'
         }
