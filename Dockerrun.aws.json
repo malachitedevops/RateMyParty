@@ -1,0 +1,12 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "ncrmns/ebparty:latest"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 3024,
+      "HostPort": 3024
+    }
+  ]
+}
