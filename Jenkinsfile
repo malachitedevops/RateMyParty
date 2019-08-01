@@ -6,12 +6,20 @@ pipeline {
   }
   agent any
   stages {
+		stage ('get .env') {
+			when {
+				branch 'master'
+			}
+      steps {
+        withAWS(region:'us-east-1',credentials:'awsebcred') {
+          sh 'aws s3 cp s3://elasticbeanstalk-us-east-1-124429370407/beparty/.env .'
+        }
+			}
     stage('Build') {
 			when {
 				branch 'master'
 			}
         steps {
-						sh 'aws s3 cp s3://elasticbeanstalk-us-east-1-124429370407/beparty/.env .'
             checkout scm
             sh 'docker build -t ncrmns/beparty .'
         }
