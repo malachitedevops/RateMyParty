@@ -4,7 +4,7 @@ const findParty = patryName => new Promise((resolve, reject) => {
   Party.findOne({ patryName },
     (err, partyData) => {
       if (err) {
-        reject(new Error('Username or password is incorrect.'));
+        reject(new Error('There is no party under this name.'));
       } else {
         resolve(partyData);
       }
