@@ -16,4 +16,3 @@ const createPartyController = (req, res) => {
 };
 
 module.exports = { createPartyController };
-
