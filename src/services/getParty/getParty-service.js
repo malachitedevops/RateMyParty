@@ -1,7 +1,7 @@
 const Party = require('../../models/party');
 
-const findParty = partyName => new Promise((resolve, reject) => {
-  Party.findOne({ partyName },
+const findParty = patryName => new Promise((resolve, reject) => {
+  Party.findOne({ patryName },
     (err, partyData) => {
       if (err) {
         reject(new Error('Username or password is incorrect.'));

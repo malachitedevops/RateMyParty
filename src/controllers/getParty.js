@@ -2,7 +2,7 @@ const getParty = require('../services/getParty/getParty-service');
 
 const findPartyController = (req, res) => {
   const { partyName } = req.headers;
-  getParty.findPartyParty(partyName)
+  getParty.findParty(partyName)
     .then((data) => {
       res.status(200).json(data);
     })
