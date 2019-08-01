@@ -1,11 +1,13 @@
-const voteForParty = require('../services/voteForParty/voteForParty-service');
+const voteUpdate = require('../services/updateVote/updateVote-service');
 const updatePartyRating = require('../services/voteForParty/updateOverallRatingForParty-service');
 
-const voteForPartyController = (req, res) => {
+const updateVoteController = (req, res) => {
   const { partyname } = req.headers;
-  const { vibeRating, crowdRating, musicRating } = req.body;
+  const {
+    voterId, vibeRating, crowdRating, musicRating,
+  } = req.body;
 
-  voteForParty.setRatings(partyname, vibeRating, crowdRating, musicRating)
+  voteUpdate.updateRatings(partyname, voterId, vibeRating, crowdRating, musicRating)
     .then(partyInfo => updatePartyRating.updatePartyOverallRating(partyInfo))
     .then((data) => {
       res.status(200).json(data);
@@ -15,4 +17,4 @@ const voteForPartyController = (req, res) => {
     });
 };
 
-module.exports = { voteForPartyController };
+module.exports = { updateVoteController };

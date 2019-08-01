@@ -1,12 +1,15 @@
 const Party = require('../../models/party');
 const Voter = require('../../models/voter');
 
-const setRatings = (partyName, vibeRating, crowdRating, musicRating) => new Promise((resolve, reject) => {
+const updateRatings = (partyName, voterId, vibeRating, crowdRating, musicRating) => new Promise((resolve, reject) => {
   const newVotes = new Voter({ vibeRating, crowdRating, musicRating });
 
-  Party.findOneAndUpdate({ partyName }, {
-    $push: {
-      voters: newVotes,
+  Party.findOneAndUpdate({ partyName, 'voters._id': voterId }, {
+
+    $set: {
+      'voters.$.vibeRating': vibeRating,
+      'voters.$.crowdRating': crowdRating,
+      'voters.$.musicRating': musicRating,
     },
   },
   { new: true },
@@ -34,4 +37,4 @@ const setRatings = (partyName, vibeRating, crowdRating, musicRating) => new Prom
     }
   });
 });
-module.exports = { setRatings };
+module.exports = { updateRatings };
