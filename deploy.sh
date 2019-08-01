@@ -3,7 +3,7 @@ aws s3 cp ./Dockerrun.aws.json \
 
 aws elasticbeanstalk create-application-version \
   --application-name "beparty" \
-  --version-label ebparty \
+  --version-label beparty \
   --source-bundle S3Bucket="elasticbeanstalk-us-east-1-124429370407",S3Key="beparty/Dockerrun.aws.json" \
   --auto-create-application
 
