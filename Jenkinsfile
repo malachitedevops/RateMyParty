@@ -7,12 +7,18 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+			when {
+				branch 'master'
+			}
         steps {
             checkout scm
             sh 'docker build -t ncrmns/beparty .'
         }
     }
     stage('Building DockerImage') {
+			when {
+				branch 'master'
+			}
       steps{
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
