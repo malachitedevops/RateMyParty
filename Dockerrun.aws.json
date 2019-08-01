@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "ncrmns/ebparty:latest"
+    "Name": "ncrmns/beparty:latest"
   },
   "Ports": [
     {
