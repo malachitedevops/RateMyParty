@@ -15,6 +15,7 @@ pipeline {
           sh 'aws s3 cp s3://elasticbeanstalk-us-east-1-124429370407/beparty/.env .'
         }
 			}
+		}
     stage('Build') {
 			when {
 				branch 'master'
