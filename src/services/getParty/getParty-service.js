@@ -1,7 +1,6 @@
 const Party = require('../../models/party');
 
 const findParty = partyName => new Promise((resolve, reject) => {
-  console.log(partyName)
   Party.findOne({ partyName },
     (err, partyData) => {
       if (err) {
