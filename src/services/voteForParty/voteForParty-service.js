@@ -9,11 +9,11 @@ const setRatings = (partyName, vibeRating, crowdRating, musicRating) => new Prom
     },
   },
   { new: true },
-  (err, data) => {
+  (err, partyData) => {
     if (err) {
       reject(err);
     } else {
-      resolve(data);
+      resolve(partyData);
     }
   });
 });
