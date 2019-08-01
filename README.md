@@ -1,2 +1,2 @@
-Rate my party Webapp v 0.1
+Rate my party Wbapp v 0.1
 
